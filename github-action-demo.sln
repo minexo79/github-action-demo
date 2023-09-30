@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "github-action-demo", "github-action-demo\github-action-demo.csproj", "{3F291A3B-3F84-4BC4-8487-575BDA3CDF7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "github-action-demo", "github-action-demo\github-action-demo.csproj", "{3F291A3B-3F84-4BC4-8487-575BDA3CDF7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
