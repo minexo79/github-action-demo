@@ -24,16 +24,7 @@ jobs:
 
       - run: dotnet publish ${{ env.PROJ_PATH }} -c Release --self-contained -r win-x86 -p:PublishSingleFile=true --no-build
 
-      - uses: actions/create-release@v1
-        id: create_release
-        env: 
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v3
         with:
-          tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
-
-      - uses: csexton/release-asset-action@v2
-        with:
-          pattern: github-action-demo\bin\Release\net6.0-windows\win-x86\publish\*.exe
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          release-url: ${{ steps.create_release.outputs.upload_url }}
+          name: github-action-demo.exe
+          path: github-action-demo\bin\Release\net6.0-windows\win-x86\publish
