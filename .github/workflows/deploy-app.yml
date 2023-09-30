@@ -1,0 +1,26 @@
+name: "Deploy App"
+
+on:
+	push:
+		tags:
+			- "github-action-demo/*"
+
+env:
+	PROJ_PATH: github-action-demo\github-action-demo.csproj
+
+jobs:
+	deploy:
+		runs-on: windows-latest
+		steps:
+			- uses: actions/checkout@v2
+
+			- uses: actions/setup-dotnet@v1
+			  with:
+				dotnet-version: 6.0.x
+
+			- run: dotnet restore ${{ env.PROJ_PATH }}
+
+			- run: dotnet build ${{ env.PROJ_PATH }} -c Release --no-restore
+
+			- run: dotnet publish ${{ env.PROJ_PATH }} -c Release --self-contained -r win-x86 -p PublishSingleFile=true
+
