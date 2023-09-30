@@ -9,9 +9,6 @@ env:
   PROJ_PATH: github-action-demo\github-action-demo.csproj
 
 jobs:
-  generate-sbom:
-    
-
   deploy:
     runs-on: windows-latest
     steps:
