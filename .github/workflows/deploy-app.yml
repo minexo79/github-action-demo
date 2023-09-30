@@ -6,7 +6,7 @@ on:
       - "github-action-demo/*"
 
 env:
-  PROJ_PATH: github-action-demo\github-action-demo.csproj
+  PROJ_PATH: github-action-demo/github-action-demo.csproj
 
 jobs:
   deploy:
