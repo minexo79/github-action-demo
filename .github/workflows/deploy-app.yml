@@ -13,9 +13,25 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
+
       - uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 6.0.x
+
       - run: dotnet restore ${{ env.PROJ_PATH }}
       - run: dotnet build ${{ env.PROJ_PATH }} -c Release --no-restore
       - run: dotnet publish ${{ env.PROJ_PATH }} -c Release --self-contained -r win-x86 -p PublishSingleFile=true
+
+      - uses: actions/create-release/v1
+        id: create_release
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+
+      - uses: actions/release-assest-actions@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pattern: github-action-demo\bin\Release\net6.0-windows\win-x86\publish\*.exe
+          release-url: ${{ steps.create_release.outputs.upload_url }}
