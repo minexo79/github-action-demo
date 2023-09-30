@@ -6,7 +6,7 @@
     <RootNamespace>github_action_demo</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-	<RuntimeIdentifier>win-x86</RuntimeIdentifier>
+	<RuntimeIdentifier>win-x64</RuntimeIdentifier>
   </PropertyGroup>
 
 </Project>
