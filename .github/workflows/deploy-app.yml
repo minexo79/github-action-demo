@@ -6,7 +6,7 @@ on:
       - "github-action-demo/*"
 
 env:
-  PROJ_PATH: github-action-demo/github-action-demo.csproj
+  PROJ_PATH: github-action-demo\github-action-demo.csproj
 
 jobs:
   deploy:
@@ -34,6 +34,6 @@ jobs:
 
       - uses: csexton/release-asset-action@v2
         with:
-          pattern: github-action-demo/bin/Release/net6.0-windows/win-x86/publish/*.exe
+          pattern: github-action-demo\bin\Release\net6.0-windows\win-x86\publish\*.exe
           github-token: ${{ secrets.GITHUB_TOKEN }}
           release-url: ${{ steps.create_release.outputs.upload_url }}
